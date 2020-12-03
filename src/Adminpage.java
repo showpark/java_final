@@ -11,13 +11,12 @@ import javax.swing.JOptionPane;
  *
  * @author Jaehyun
  */
-public class MainPage extends javax.swing.JFrame {
+public class Adminpage extends javax.swing.JFrame {
 
     DB_MAN DBM = new DB_MAN();
     String strSQL = "Select * From UserInfo ";
     
-    
-    public MainPage() {
+    public Adminpage() {
         initComponents();
     }
 
@@ -39,21 +38,25 @@ public class MainPage extends javax.swing.JFrame {
         txtSearchName = new javax.swing.JTextField();
         txtSearchId = new javax.swing.JTextField();
         txtSearchEmail = new javax.swing.JTextField();
+        lblFilter = new javax.swing.JLabel();
+        searchFilter = new javax.swing.JComboBox<>();
+        btnSearch = new javax.swing.JButton();
+        btnInsert = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
         lblSearchStatus = new javax.swing.JLabel();
         lblSearchHobby = new javax.swing.JLabel();
         txtSearchStatus = new javax.swing.JTextField();
         txtSearchHobby = new javax.swing.JTextField();
         txtSearchGender = new javax.swing.JTextField();
-        checkInfo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         lblTitle.setFont(new java.awt.Font("굴림", 1, 24)); // NOI18N
-        lblTitle.setText("사용자 페이지");
+        lblTitle.setText("사용자 관리");
 
         lblSearchName.setText("이름");
 
@@ -64,7 +67,6 @@ public class MainPage extends javax.swing.JFrame {
         lblSearchGender.setText("성별");
 
         txtSearchId.setText("사용자 아이디를 입력해주세요");
-        txtSearchId.setToolTipText("");
         txtSearchId.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 txtSearchIdFocusGained(evt);
@@ -73,16 +75,31 @@ public class MainPage extends javax.swing.JFrame {
                 txtSearchIdFocusLost(evt);
             }
         });
-        txtSearchId.addActionListener(new java.awt.event.ActionListener() {
+
+        lblFilter.setText("검색 기준");
+
+        searchFilter.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "이름", "아이디", "이메일", "회원상태", "성별" }));
+
+        btnSearch.setText("검색");
+        btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchIdActionPerformed(evt);
+                btnSearchActionPerformed(evt);
+            }
+        });
+
+        btnInsert.setText("추가");
+        btnInsert.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsertActionPerformed(evt);
             }
         });
 
         btnUpdate.setText("수정");
-        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+
+        btnDelete.setText("삭제");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnUpdateActionPerformed(evt);
+                btnDeleteActionPerformed(evt);
             }
         });
 
@@ -96,13 +113,6 @@ public class MainPage extends javax.swing.JFrame {
         lblSearchStatus.setText("회원상태");
 
         lblSearchHobby.setText("취미");
-
-        checkInfo.setText("정보확인");
-        checkInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                checkInfoActionPerformed(evt);
-            }
-        });
 
         jLabel1.setText("상태: 정회원, 준회원, 학생회원");
 
@@ -121,106 +131,108 @@ public class MainPage extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(lblSearchHobby, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblFilter, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblSearchName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblSearchId, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblSearchEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(lblSearchStatus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtSearchGender)
-                                    .addComponent(txtSearchHobby)
-                                    .addComponent(txtSearchName)
-                                    .addComponent(txtSearchId, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtSearchEmail, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(txtSearchStatus)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(searchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(txtSearchGender)
+                                            .addComponent(txtSearchHobby)
+                                            .addComponent(txtSearchName)
+                                            .addComponent(txtSearchId, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtSearchEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtSearchStatus)))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(lblSearchHobby, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(checkInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnUpdate)
+                            .addComponent(btnSearch)
+                            .addComponent(btnInsert)
+                            .addComponent(btnDelete)
+                            .addComponent(btnExit))
                         .addGap(51, 51, 51))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(lblTitle)
-                .addGap(208, 208, 208))
+                .addGap(204, 204, 204))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(10, 10, 10)
                 .addComponent(lblTitle)
-                .addGap(49, 49, 49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSearchName)
-                    .addComponent(txtSearchName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(checkInfo))
+                    .addComponent(lblFilter)
+                    .addComponent(searchFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSearchId)
-                    .addComponent(txtSearchId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnUpdate))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSearchEmail)
-                    .addComponent(txtSearchEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnExit))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblSearchStatus)
-                    .addComponent(txtSearchStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSearchName)
+                            .addComponent(txtSearchName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSearchId)
+                            .addComponent(txtSearchId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnUpdate))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSearchEmail)
+                            .addComponent(txtSearchEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInsert))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(lblSearchStatus)
+                            .addComponent(btnDelete)
+                            .addComponent(txtSearchStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnSearch))
                 .addGap(2, 2, 2)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSearchHobby)
+                    .addComponent(btnExit)
                     .addComponent(txtSearchHobby, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(2, 2, 2)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblSearchGender)
                     .addComponent(txtSearchGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_btnExitActionPerformed
-
-    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        int result = 0;
-        strSQL = "Update UserInfo Set ";
-        strSQL += "NAME = '" + txtSearchName.getText() + "', ";
-        strSQL += "EMAIL = '" + txtSearchEmail.getText() + "', ";
-        strSQL += "STATUS = '" + txtSearchStatus.getText() + "', ";
-        strSQL += "HOBBY = '" + txtSearchHobby.getText() + "', ";
-        strSQL += "GENDER = '" + txtSearchGender.getText() + "'";
-        strSQL += " WHERE ID = '" + txtSearchId.getText() +"'";
-        try{
-            DBM.dbOpen();
-            result = DBM.DB_stmt.executeUpdate(strSQL);
-            if(result==1){
-                JOptionPane.showMessageDialog(null, "회원정보가 수정되었습니다.");
-            } else{
-                JOptionPane.showMessageDialog(null, "수정이 실패됐습니다.");
-            }
-            DBM.dbClose();
-        } catch(Exception e) {
-            System.out.println("SQLException : " + e.getMessage());
+    private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
+        String filter = searchFilter.getSelectedItem().toString();
+        if(filter.equals("이름")){
+            strSQL = "Select * From UserInfo Where Name = "+"'"+txtSearchName.getText()+"'";
+        }else if(filter.equals("아이디")){
+            strSQL = "Select * From UserInfo Where Id = "+"'"+txtSearchId.getText()+"'";
+        }else if(filter.equals("이메일")){
+            strSQL = "Select * From UserInfo Where Email = "+"'"+txtSearchEmail.getText()+"'";
+        }else if(filter.equals("회원상태")){
+            strSQL = "Select * From UserInfo Where Status = "+"'"+txtSearchStatus.getText()+"'";
+        }else if(filter.equals("성별")){
+            strSQL = "Select * From UserInfo Where Gender = "+"'"+txtSearchGender.getText()+"'";
         }
-    }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void checkInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkInfoActionPerformed
-       strSQL = "Select * From UserInfo Where Name = "+"'"+txtSearchId.getText()+"'";
         try{
             DBM.dbOpen();
             DBM.DB_rs = DBM.DB_stmt.executeQuery(strSQL);
@@ -228,8 +240,8 @@ public class MainPage extends javax.swing.JFrame {
                 txtSearchName.setText(DBM.DB_rs.getString("Name"));
                 txtSearchId.setText(DBM.DB_rs.getString("Id"));
                 txtSearchEmail.setText(DBM.DB_rs.getString("Email"));
-                txtSearchStatus.setText(DBM.DB_rs.getString("Status"));
-                txtSearchHobby.setText(DBM.DB_rs.getString("Hobby"));
+                txtSearchStatus.setText(DBM.DB_rs.getString("memberstatus"));
+                txtSearchHobby.setText(DBM.DB_rs.getString("hobby"));
                 txtSearchGender.setText(DBM.DB_rs.getString("Gender"));
             }
             DBM.DB_rs.close();
@@ -237,12 +249,38 @@ public class MainPage extends javax.swing.JFrame {
         }catch(Exception e){
             System.out.println("SQLException : "+e.getMessage());
         }
-               
-    }//GEN-LAST:event_checkInfoActionPerformed
+    }//GEN-LAST:event_btnSearchActionPerformed
 
-    private void txtSearchIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchIdActionPerformed
-       
-    }//GEN-LAST:event_txtSearchIdActionPerformed
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnExitActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
+        String password = "1234";
+        strSQL = "Insert Into UserInfo Values (";
+        strSQL += "'"+txtSearchId.getText()+"', ";
+        strSQL += "'"+password+"', ";
+        strSQL += "'"+txtSearchName.getText()+"', ";
+        strSQL += "'"+txtSearchEmail.getText()+"', ";
+        strSQL += "'"+txtSearchStatus.getText()+"', ";
+        strSQL += "'"+txtSearchHobby.getText()+"', ";
+        strSQL += "'"+txtSearchGender.getText()+"')";
+        
+        try{
+            DBM.dbOpen();
+            DBM.DB_stmt.executeUpdate(strSQL);
+            strSQL = "Select * From UserInfo";
+            DBM.dbClose();
+            JOptionPane.showMessageDialog(null, "회원을 추가하였습니다.");
+        }catch(Exception e){
+            System.out.println("SQLException : "+e.getMessage());
+        }
+            
+    }//GEN-LAST:event_btnInsertActionPerformed
 
     private void txtSearchIdFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtSearchIdFocusGained
         if(txtSearchId.getText().equals("사용자 아이디를 입력해주세요")){
@@ -289,12 +327,15 @@ public class MainPage extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnExit;
+    private javax.swing.JButton btnInsert;
+    private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnUpdate;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton checkInfo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblFilter;
     private javax.swing.JLabel lblSearchEmail;
     private javax.swing.JLabel lblSearchGender;
     private javax.swing.JLabel lblSearchHobby;
@@ -302,6 +343,7 @@ public class MainPage extends javax.swing.JFrame {
     private javax.swing.JLabel lblSearchName;
     private javax.swing.JLabel lblSearchStatus;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JComboBox<String> searchFilter;
     private javax.swing.JTextField txtSearchEmail;
     private javax.swing.JTextField txtSearchGender;
     private javax.swing.JTextField txtSearchHobby;
