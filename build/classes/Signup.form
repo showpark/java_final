@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JFrameFormInfo">
+  <NonVisualComponents>
+    <Component class="javax.swing.ButtonGroup" name="buttonGroup1">
+    </Component>
+  </NonVisualComponents>
+  <Properties>
+    <Property name="defaultCloseOperation" type="int" value="3"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+    <SyntheticProperty name="generateCenter" type="boolean" value="false"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="1"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                          <Component id="lblSignStatus" alignment="0" pref="89" max="32767" attributes="0"/>
+                          <Component id="lblSignHobby" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="Member" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="ReadyMember" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="Student" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" attributes="0">
+                              <Component id="swim" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="game" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="golf" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="ski" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="book" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="tennis" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace min="0" pref="130" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="lblSignPassword" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblSignPasswordConfirm" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblSignName" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblSignEmail" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblSignGender" alignment="0" max="32767" attributes="0"/>
+                  <Component id="lblSignId" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="txtSignId" max="32767" attributes="0"/>
+                  <Component id="signGender" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSignName" alignment="0" pref="227" max="32767" attributes="0"/>
+                  <Component id="txtSignEmail" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtSignPasswordConfirm" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtSignPassword" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnSignup" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnDup" min="-2" pref="89" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSignId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSignId" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnDup" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSignPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSignPassword" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSignPasswordConfirm" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSignPasswordConfirm" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSignName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSignName" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSignEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSignEmail" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSignStatus" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Member" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="ReadyMember" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="Student" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSignHobby" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="swim" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="game" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="golf" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="ski" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="book" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="tennis" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="lblSignGender" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="signGender" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
+              <Component id="btnSignup" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="38" max="32767" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="&#xad74;&#xb9bc;" size="24" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xd68c;&#xc6d0;&#xac00;&#xc785;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSignId">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc544;&#xc774;&#xb514;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSignPassword">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xbe44;&#xbc00;&#xbc88;&#xd638;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSignPasswordConfirm">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xbe44;&#xbc00;&#xbc88;&#xd638; &#xd655;&#xc778;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSignName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc774;&#xb984;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSignEmail">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc774;&#xba54;&#xc77c;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSignGender">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc131;&#xbcc4;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSignId">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtSignIdActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnDup">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc911;&#xbcf5;&#xd655;&#xc778;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDupActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSignName">
+      <Properties>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSignEmail">
+    </Component>
+    <Component class="javax.swing.JComboBox" name="signGender">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="3">
+            <StringItem index="0" value="&#xb0a8;&#xc790;"/>
+            <StringItem index="1" value="&#xc5ec;&#xc790;"/>
+            <StringItem index="2" value="&#xae30;&#xd0c0;"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
+    </Component>
+    <Component class="javax.swing.JButton" name="btnSignup">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xd68c;&#xc6d0;&#xac00;&#xc785;"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnSignupActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtSignPassword">
+    </Component>
+    <Component class="javax.swing.JPasswordField" name="txtSignPasswordConfirm">
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSignStatus">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xd68c;&#xc6d0; &#xc0c1;&#xd0dc;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="lblSignHobby">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xcde8;&#xbbf8;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="Member">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroup1"/>
+        </Property>
+        <Property name="selected" type="boolean" value="true"/>
+        <Property name="text" type="java.lang.String" value="&#xc815;&#xd68c;&#xc6d0;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="ReadyMember">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroup1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xc900;&#xd68c;&#xc6d0;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="Student">
+      <Properties>
+        <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+          <ComponentRef name="buttonGroup1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="&#xd559;&#xc0dd;&#xd68c;&#xc6d0;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="swim">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc218;&#xc601;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="game">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xac8c;&#xc784;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="golf">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xace8;&#xd504;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="ski">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xc2a4;&#xd0a4;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="book">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xb3c5;&#xc11c;"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JCheckBox" name="tennis">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="&#xd14c;&#xb2c8;&#xc2a4;"/>
+      </Properties>
+    </Component>
+  </SubComponents>
+</Form>
