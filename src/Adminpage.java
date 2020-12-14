@@ -95,6 +95,11 @@ public class Adminpage extends javax.swing.JFrame {
         });
 
         btnUpdate.setText("수정");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
         btnDelete.setText("삭제");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -240,8 +245,8 @@ public class Adminpage extends javax.swing.JFrame {
                 txtSearchName.setText(DBM.DB_rs.getString("Name"));
                 txtSearchId.setText(DBM.DB_rs.getString("Id"));
                 txtSearchEmail.setText(DBM.DB_rs.getString("Email"));
-                txtSearchStatus.setText(DBM.DB_rs.getString("memberstatus"));
-                txtSearchHobby.setText(DBM.DB_rs.getString("hobby"));
+                txtSearchStatus.setText(DBM.DB_rs.getString("Status"));
+                txtSearchHobby.setText(DBM.DB_rs.getString("Hobby"));
                 txtSearchGender.setText(DBM.DB_rs.getString("Gender"));
             }
             DBM.DB_rs.close();
@@ -256,7 +261,17 @@ public class Adminpage extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        
+        strSQL = "Delete From UserInfo Where id = "+"'"+txtSearchId.getText()+"'";
+        String output = txtSearchId.getText() + "를 삭제하였습니다.";
+        try{
+            DBM.dbOpen();
+            DBM.DB_stmt.executeUpdate(strSQL);
+            strSQL = "Select * From Userinfo";
+            JOptionPane.showMessageDialog(null, output);
+            DBM.dbClose();
+        }catch(Exception e){
+            System.out.println("SQLException : "+e.getMessage());
+        }
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
@@ -293,6 +308,25 @@ public class Adminpage extends javax.swing.JFrame {
             txtSearchId.setText("사용자 아이디를 입력해주세요");
         }
     }//GEN-LAST:event_txtSearchIdFocusLost
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        strSQL = "Update UserInfo Set ";
+        strSQL += "NAME = '"+txtSearchName.getText()+"', ";
+        strSQL += "EMAIL = '"+txtSearchEmail.getText()+"', ";
+        strSQL += "STATUS = '"+txtSearchStatus.getText()+"', ";
+        strSQL += "HOBBY = '"+txtSearchHobby.getText()+"', ";
+        strSQL += "GENDER = '"+txtSearchGender.getText()+"'";
+        System.out.println(strSQL);
+        try{
+            DBM.dbOpen();
+            DBM.DB_stmt.executeUpdate(strSQL);
+            strSQL = "Select * From UserInfo";
+            DBM.dbClose();
+            JOptionPane.showMessageDialog(null, "회원정보가 수정되었습니다.");
+        }catch(Exception e){
+            System.out.println("SQLException : "+e.getMessage());
+        }
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 import java.sql.*;
 import java.io.*;
 import java.util.*;
-/**
- *
- * @author Lee, Won-Joo
- */
+
 public class DB_MAN {
     String strDriver = "oracle.jdbc.driver.OracleDriver";
     String strURL = "jdbc:oracle:thin:@localhost:1521";      //Orcale DB connection(localhost)
@@ -41,5 +33,3 @@ public class DB_MAN {
        }
    }
 }
-
-
